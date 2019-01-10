@@ -1,0 +1,66 @@
+" normal setting
+" set line number
+set number
+"set background=dark
+"colorscheme solarized
+
+" enter F2 into paste mode
+set pastetoggle=<F2>
+
+
+set foldmethod=indent
+
+" for convenient
+let mapleader=','
+let g:mapleader=','
+
+
+" spaces and tabs
+set tabstop=4	"number of visual spaces per TAB
+set softtabstop=4	"number of spaces in tab when editing
+set expandtab    "tabs are spaces
+set wildmenu    "visual autocomplete for command menu
+set showmatch   "highlight matching brackets
+
+
+" Searching
+set incsearch   "search as characters entered
+set hlsearch    "highlight search
+
+" Moving
+" using B to head
+nnoremap B ^    
+" using F to end
+nnoremap F $
+" cancel their original function
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
+"using jk into normal mode
+inoremap jk <Esc>     
+
+" Leader shortcuts
+let mapleader=","   " leader is comma
+
+
+" 使用 leader+w 直接保存
+inoremap <leader>w <Esc>:w<cr>
+noremap <leader>w :w<cr>
+
+
+
+" ui config
+set showcmd
+set cursorline  "highlight current line
+
+
+" 插件设置，这里使用了 vim-plug
+call plug#begin('~/.vim/plugged')
+
+" 安装插件只需要把 github 地址放到这里重启后执行 :PlugInstall 就好了
+Plug 'scrooloose/nerdtree'
+Plug 'easymotion/vim-easymotion'
+call plug#end()
+
+" make vimrc work right now
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
